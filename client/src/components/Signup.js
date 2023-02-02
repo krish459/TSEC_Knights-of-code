@@ -13,29 +13,38 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
-import { Checkbox, FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { Checkbox, FormControlLabel, MenuItem } from "@mui/material";
+import GoogleButton from "react-google-button";
+import { useState } from "react";
 
 const theme = createTheme();
 const Signup = () => {
-  const handleSubmit = async (event) => {
-    try {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      // console.log({
-      //   email: data.get("email"),
-      //   password: data.get("password"),
-      //   firstname: data.get("firstname"),
-      //   lastname: data.get("lastname"),
-      // });
-      const response = await axios.post(
-        `https://db06-103-246-224-134.in.ngrok.io//account/signup/`,
-        data
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+  const gender = [
+    {
+      value: "male",
+      label: "Male",
+    },
+    {
+      value: "female",
+      label: "Female",
+    },
+    {
+      value: "other",
+      label: "Other",
+    },
+  ];
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+      firstname: data.get("firstname"),
+      lastname: data.get("lastname"),
+    });
   };
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -64,7 +73,7 @@ const Signup = () => {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="firstname"
                   required
                   fullWidth
                   id="firstName"
@@ -78,7 +87,7 @@ const Signup = () => {
                   fullWidth
                   id="lastName"
                   label="Last Name"
-                  name="lastName"
+                  name="lastname"
                   autoComplete="family-name"
                 />
               </Grid>
@@ -93,41 +102,33 @@ const Signup = () => {
                   autoFocus
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="Gender"
+                  defaultValue="male"
+                  name="gender"
+                >
+                  {gender.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="dob"
-                  inputFormat="MM/DD/YYYY"
-                  label="DOB(MM/DD/YYYY)"
+                  id="DOB"
+                  inputformat="YYYY-MM-DD"
+                  label="DOB(YYYY-MM-DD)"
                   name="dob"
                   autoComplete="dob"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                >
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Female"
-                  />
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="Male"
-                  />
-                  <FormControlLabel
-                    value="other"
-                    control={<Radio />}
-                    label="Other"
-                  />
-                </RadioGroup>
-              </Grid>
-
               <Grid item xs={12}>
                 <TextField
                   required
@@ -166,8 +167,20 @@ const Signup = () => {
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-start">
-              <Grid item>
+
+            <Grid container>
+              <Grid item style={{ margin: "auto" }}>
+                <Link href="#" variant="body1">
+                  <GoogleButton
+                    onClick={() => {
+                      console.log("Google clicked");
+                    }}
+                  />
+                </Link>
+              </Grid>
+            </Grid>
+            <Grid container justifyContent="flex-center">
+              <Grid item style={{ margin: "auto" }}>
                 <Link href="#" variant="body2">
                   Already have an account? Sign in
                 </Link>

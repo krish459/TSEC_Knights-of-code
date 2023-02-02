@@ -28,7 +28,7 @@ const Login = () => {
       //   lastname: data.get("lastname"),
       // });
       const response = await axios.post(
-        "https://4dce-2405-201-2b-4b33-b5fb-77f6-d2db-9b2a.in.ngrok.io/account/login/",
+        "https://db06-103-246-224-134.in.ngrok.io/account/login/",
         data
       );
       console.log(response);
