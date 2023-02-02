@@ -15,6 +15,18 @@ class WhatIAm(models.Model):
     def __str__(self):
         return self.email
 
+class WhatIWant(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    food = models.IntegerField()
+    smoker = models.IntegerField()
+    drinker = models.IntegerField()
+    pet = models.IntegerField()
+    gender = models.IntegerField()
+    cook = models.IntegerField()
+    job = models.IntegerField()
+
+
+
 class House(models.Model):
     user_details = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     address = models.TextField(max_length=600)

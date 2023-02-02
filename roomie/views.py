@@ -12,9 +12,9 @@ from drf_spectacular.types import OpenApiTypes
 from rest_framework import (mixins, generics, status, permissions)
 from rest_framework.response import Response
 
-from .models import user_details, House, WhatIAm
+from .models import user_details, House, WhatIAm, WhatIWant
 
-from .serializers import HouseSerializer, WhatIAmSerializer
+from .serializers import HouseSerializer, WhatIAmSerializer, WhatIWantSerializer
 
 from accounts.serializers import UserSerializer
 # Create your views here.
