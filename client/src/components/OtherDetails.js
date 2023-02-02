@@ -9,7 +9,6 @@ import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import axios from "axios";
 import { Checkbox, FormControlLabel, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -21,16 +20,16 @@ const OtherDetails = () => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
       data.append("token", localStorage.getItem("token"));
-        console.log({
-          food: data.get("food"),
-          smoke: data.get("smoker"),
-          drink: data.get("drinker"),
-          pet: data.get("pet"),
-          cook: data.get("cook"),
-          work: data.get("job"),
-          gender: data.get("gender"),
-          token: data.get("token"),
-        });
+      console.log({
+        food: data.get("food"),
+        smoke: data.get("smoker"),
+        drink: data.get("drinker"),
+        pet: data.get("pet"),
+        cook: data.get("cook"),
+        work: data.get("job"),
+        gender: data.get("gender"),
+        token: data.get("token"),
+      });
 
       localStorage.setItem("food", data.get("food"));
       localStorage.setItem("smoker", data.get("smoker"));
@@ -39,11 +38,12 @@ const OtherDetails = () => {
       localStorage.setItem("cook", data.get("cook"));
       localStorage.setItem("job", data.get("job"));
       localStorage.setItem("gender", data.get("gender"));
+      localStorage.setItem("city", data.get("city"));
       localStorage.setItem("token", data.get("token"));
 
       let pathname1 = "/login";
       let pathname2 = "/findaroommate";
-      data.get("token") ? navigate(pathname1) : navigate(pathname2);
+      (!data.get("token")) ? navigate(pathname1) : navigate(pathname2);
     } catch (error) {
       console.log(error);
     }
@@ -107,6 +107,24 @@ const OtherDetails = () => {
     {
       value: 3,
       label: "Full Time",
+    },
+  ];
+  const City = [
+    {
+      value: "Mumbai",
+      label: "Mumbai",
+    },
+    {
+      value: "Pune",
+      label: "Pune",
+    },
+    {
+      value: "Nashik",
+      label: "Nashik",
+    },
+    {
+      value: "Surat",
+      label: "Surat",
     },
   ];
   return (
@@ -230,7 +248,7 @@ const OtherDetails = () => {
                   ))}
                 </TextField>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   id="outlined-select-currency"
                   select
@@ -246,7 +264,22 @@ const OtherDetails = () => {
                   ))}
                 </TextField>
               </Grid>
-
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="City"
+                  defaultValue="Mumbai"
+                  name="city"
+                  style={{ width: "12rem" }}
+                >
+                  {City.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
               <Grid item xs={12} sm={6}>
                 <FormControlLabel
                   control={

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 
@@ -14,11 +15,18 @@
     height: 85vh;
 }
 
+.h1style{
+    left: 40rem;
+    padding-left: 3rem;
+}
+
 .sidebar{
     height: 100%;
     width: 100%;
-    background-color:beige;
+    background-color: white;
     padding: 0rem 2rem;
+    border: 2px solid palevioletred;
+    border-radius: 10px;
 }
 
 .field-classes{

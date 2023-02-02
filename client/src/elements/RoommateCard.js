@@ -9,7 +9,14 @@ export default function RoommateCard({
   pet,
   cook,
   email,
+  city,
 }) {
+  //   const cityFunc = (gen) => {
+  //     if (gen.city === "1") return "Mumbai";
+  //     if (gen.city === "2") return "Pune";
+  //     if (gen.city === "3") return "Nashik";
+  //     if (gen.city === "4") return "Surat";
+  //   };
   const genderfunc = (gen) => {
     if (gen.gender === "1") return "Male";
     if (gen.gender === "2") return "Female";
@@ -92,6 +99,7 @@ export default function RoommateCard({
           <div className="cooks">Cooks : {yesOrNoC({ cook })}</div>
           <span className="job">Work : {workfunc({ work })}</span>
           <span className="pet">Pet : {yesOrNoP({ pet })}</span>
+          <span className="pet">City : {city}</span>
           <div className="buttons">
             <button className="roommateCard-btn">Yes</button>
             <button className="roommateCard-btn">No</button>

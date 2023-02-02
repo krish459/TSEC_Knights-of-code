@@ -6,8 +6,11 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    background-color: aqua;
+    background-color: white;
     padding: 2rem;
+    border:2px solid palevioletred;
+    border-radius: 10px;
+
 }
 
 .input-propertyDetails{

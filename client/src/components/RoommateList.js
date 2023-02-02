@@ -20,12 +20,14 @@ export default function RoommateList() {
   if (!profiledata) {
     return <Loading />;
   }
+
   return (
     <div className="roommateList">
       <h1>Roomies</h1>
       {profiledata.data.map((data) => {
         return (
-          data.email !== localStorage.getItem("email") && (
+          data.email !== localStorage.getItem("email") &&
+          data.city === localStorage.getItem("city") && (
             <RoommateCard
               key={data.id}
               food={data.food}
@@ -36,6 +38,7 @@ export default function RoommateList() {
               pet={data.pet}
               cook={data.cook}
               email={data.email}
+              city={data.city}
             />
           )
         );

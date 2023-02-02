@@ -28,6 +28,7 @@ const MyDetails = () => {
         work: data.get("job"),
         gender: data.get("gender"),
         email: data.get("email"),
+        city: data.get("city"),
       });
 
       const response = await axios.post(
@@ -98,6 +99,24 @@ const MyDetails = () => {
     {
       value: 3,
       label: "Full Time",
+    },
+  ];
+  const City = [
+    {
+      value: "Mumbai",
+      label: "Mumbai",
+    },
+    {
+      value: "Pune",
+      label: "Pune",
+    },
+    {
+      value: "Nashik",
+      label: "Nashik",
+    },
+    {
+      value: "Surat",
+      label: "Surat",
     },
   ];
   return (
@@ -221,7 +240,7 @@ const MyDetails = () => {
                   ))}
                 </TextField>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   id="outlined-select-currency"
                   select
@@ -231,6 +250,22 @@ const MyDetails = () => {
                   style={{ width: "12rem" }}
                 >
                   {Work.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="City"
+                  defaultValue="Mumbai"
+                  name="city"
+                  style={{ width: "12rem" }}
+                >
+                  {City.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
                     </MenuItem>

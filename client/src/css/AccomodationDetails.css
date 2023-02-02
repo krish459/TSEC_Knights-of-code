@@ -5,8 +5,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    background-color: white;
     padding: 2rem;
+    border: 4px;
 }
 
 .input-accomodationDetails{

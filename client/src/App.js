@@ -9,21 +9,24 @@ import RoommateList from "./components/RoommateList";
 import ApartmentList from "./components/ApartmentList";
 // import AddressSelection from "./elements/AddressSelection";
 import Login from "./components/Login";
-import PropertyList from "./components/PropertyList";
 import MyDetails from "./components/MyDetails";
 import OtherDetails from "./components/OtherDetails";
 import Footer from "./elements/Footer";
 
 function App() {
+  window.onscroll = function () {
+    scrollFunction();
+  };
 
-  window.onscroll = function() {scrollFunction()};
-    
   function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
       document.getElementById("navbar-m").style.transform = "translateY(0)";
-  } else {
+    } else {
       document.getElementById("navbar-m").style.transform = "translateY(-5rem)";
-  }
+    }
   }
 
   return (
@@ -35,13 +38,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/propertyposting" element={<PropertyPosting />} />
-        <Route path="/propertylist" element={<PropertyList />} />
         <Route path="/mydetails" element={<MyDetails />} />
         <Route path="/findaroommate" element={<RoommateList />} />
         <Route path="/findanapartment" element={<ApartmentList />} />
         <Route path="/otherdetails" element={<OtherDetails />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
