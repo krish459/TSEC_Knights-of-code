@@ -15,7 +15,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { Checkbox, FormControlLabel, MenuItem } from "@mui/material";
 import GoogleButton from "react-google-button";
-import { useState } from "react";
 
 const theme = createTheme();
 const Signup = () => {
@@ -34,15 +33,27 @@ const Signup = () => {
     },
   ];
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-      firstname: data.get("firstname"),
-      lastname: data.get("lastname"),
-    });
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      console.log({
+        email: data.get("email"),
+        password: data.get("password"),
+        firstname: data.get("firstname"),
+        lastname: data.get("lastname"),
+        phone: data.get("phone"),
+        dob: data.get("dob"),
+        gender: data.get("gender"),
+      });
+      const response = await axios.post(
+        "https://db06-103-246-224-134.in.ngrok.io/account/signup/",
+        data
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -181,7 +192,7 @@ const Signup = () => {
             </Grid>
             <Grid container justifyContent="flex-center">
               <Grid item style={{ margin: "auto" }}>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
