@@ -1,4 +1,4 @@
-import logo from'../assets/logo.jpeg'
+import logo from'../assets/default.svg'
 import '../css/Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
@@ -14,13 +14,16 @@ export default function Navbar(){
     }
 
     return(
-        <nav className="navbar-main">
+        <nav className="navbar-main" id='navbar-m'>
             <NavLink to="/">
-                <img src={logo} alt="logo" width="5rem" />
+                <img src={logo} alt="logo" />
             </NavLink>
             <ul className="nav-list" data-visible = {navBarOpen}>
                 <li className="nav-list-item">
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/findaroommate">Find a Room-mate</NavLink>
+                </li>
+                <li className="nav-list-item">
+                    <NavLink to="/findanapartment">Find an Apartment</NavLink>
                 </li>
                 <li className="nav-list-item">
                     <NavLink to="/propertyposting">Post a Property</NavLink>
