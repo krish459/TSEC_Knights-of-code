@@ -16,7 +16,7 @@ class WhatIAm(models.Model):
         return self.email
 
 class WhatIWant(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.EmailField(max_length=255)
     food = models.CharField(max_length = 2)
     smoker = models.CharField(max_length = 2)
     drinker = models.CharField(max_length = 2)
@@ -25,7 +25,6 @@ class WhatIWant(models.Model):
     cook = models.CharField(max_length = 2)
     job = models.CharField(max_length = 2)
     createdAt      = models.DateTimeField(auto_now_add = True)
-
 
 
 class House(models.Model):

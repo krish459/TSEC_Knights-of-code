@@ -108,4 +108,40 @@ class WIAView(APIView):
             return JsonResponse(serializer.data, status = status.HTTP_202_ACCEPTED)
         return JsonResponse(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
+class AllwiaView(generics.ListAPIView):
+    serializer_class = WhatIAmSerializer
+    def list(self,request):
+        queryset = WhatIAm.objects.all()
+        serializer = WhatIAmSerializer(queryset, many = True)
+        return JsonResponse(serializer.data,safe = False, status = status.HTTP_200_OK)
+
+class WIWView(APIView):
+    serializer_class = WhatIWantSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get(self, request):
+        try:
+            user=User.objects.get(email = request.user)
+        except User.DoesNotExist:
+            content = {'detail': 'No such user exists'}
+            return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
+        wiw=WhatIWant.objects.filter(email = user.email)
+        if wiw.exists():
+            wiw_first = wiw.objects.order_by('-createdAt').first() 
+        wiws = WhatIAmSerializer(wiw_first, many=False, context={'request': request})
+        return JsonResponse(wiws.data, status = status.HTTP_200_OK)
+
+
+    def post(self, request):
+        try:
+            user=User.objects.get(email = request.user)
+        except User.DoesNotExist:
+            content = {'detail': 'No such user exists'}
+            return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
+        wiw_user = WhatIWant(emial = user.email)
+        serializer = WhatIWantSerializer(wiw_user,data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status = status.HTTP_202_ACCEPTED)
+        return JsonResponse(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
