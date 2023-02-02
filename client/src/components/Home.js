@@ -4,19 +4,6 @@ import '../css/Home.css'
 
 export default function Home() {
 
-    window.onscroll = function() {scrollFunction()};
-    
-    function scrollFunction() {
-      console.log("scroll");
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      console.log(document.documentElement.scrollTop);
-        document.getElementById("navbar-m").style.transform = "translateY(0)";
-        console.log(document.getElementById("navbar-m"));
-    } else {
-        document.getElementById("navbar-m").style.transform = "translateY(-5rem)";
-    }
-    }
-
   return (
     <div className="home">
         <div className="hero">

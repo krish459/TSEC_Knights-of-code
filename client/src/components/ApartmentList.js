@@ -1,10 +1,17 @@
 import '../css/ApartmentList.css'
 import ApartmentCard from '../elements/ApartmentCard'
+import Filter from '../elements/Filter'
 
 export default function ApartmentList(){
     return(
         <div className="apartmentList">
-            <h1>Apartment List</h1>
+            <Filter/>
+            <ApartmentCard/>
+            <ApartmentCard/>
+            <ApartmentCard/>
+            <ApartmentCard/>
+            <ApartmentCard/>
+            <ApartmentCard/>
             <ApartmentCard/>
         </div>
     )

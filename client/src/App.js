@@ -14,6 +14,17 @@ import MyDetails from "./components/MyDetails";
 import OtherDetails from "./components/OtherDetails";
 
 function App() {
+
+  window.onscroll = function() {scrollFunction()};
+    
+  function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("navbar-m").style.transform = "translateY(0)";
+  } else {
+      document.getElementById("navbar-m").style.transform = "translateY(-5rem)";
+  }
+  }
+
   return (
     <div className="App">
       <Navbar />
