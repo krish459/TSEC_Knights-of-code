@@ -59,7 +59,7 @@ class SignUp(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPI
             user_data
             # verifyPhone.send(user_data.phone)
 
-            return JsonResponse({'status': 'created', 'token': str(token), 'phone':str(user_data.phone)}, status=status.HTTP_201_CREATED)
+            return JsonResponse({'status': 'created', 'token': str(token), 'phone':str(user_data.phone),'email':str(user_data.email)}, status=status.HTTP_201_CREATED)
         return JsonResponse(serializer1.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
