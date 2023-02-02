@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import PropertyList from "./components/PropertyList";
 import MyDetails from "./components/MyDetails";
 import OtherDetails from "./components/OtherDetails";
+import Footer from "./elements/Footer";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/findanapartment" element={<ApartmentList />} />
         <Route path="/otherdetails" element={<OtherDetails />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
