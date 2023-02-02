@@ -4,26 +4,27 @@ from accounts.models import User
 
 class WhatIAm(models.Model):
     email = models.EmailField(max_length=255, unique=True)
-    food = models.IntegerField()
-    smoker = models.IntegerField()
-    drinker = models.IntegerField()
-    pet = models.IntegerField()
-    gender = models.IntegerField()
-    cook = models.IntegerField()
-    job = models.IntegerField()
+    food = models.CharField(max_length=2)
+    smoker = models.CharField(max_length = 2)
+    drinker = models.CharField(max_length = 2)
+    pet = models.CharField(max_length = 2)
+    gender = models.CharField(max_length = 2)
+    cook = models.CharField(max_length = 2)
+    job = models.CharField(max_length = 2)
 
     def __str__(self):
         return self.email
 
 class WhatIWant(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    food = models.IntegerField()
-    smoker = models.IntegerField()
-    drinker = models.IntegerField()
-    pet = models.IntegerField()
-    gender = models.IntegerField()
-    cook = models.IntegerField()
-    job = models.IntegerField()
+    food = models.CharField(max_length = 2)
+    smoker = models.CharField(max_length = 2)
+    drinker = models.CharField(max_length = 2)
+    pet = models.CharField(max_length = 2)
+    gender = models.CharField(max_length = 2)
+    cook = models.CharField(max_length = 2)
+    job = models.CharField(max_length = 2)
+    createdAt      = models.DateTimeField(auto_now_add = True)
 
 
 
