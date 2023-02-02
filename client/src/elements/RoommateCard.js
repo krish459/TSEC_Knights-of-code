@@ -88,9 +88,9 @@ export default function RoommateCard({
 
   return (
     <>
-      <div className="roommateCard">
-        <div className="info">
-          {/* <div className="name">{name}</div> */}
+      {/* <div className="roommateCard">
+        <div className="info"> */}
+          {/* <div className="name">{name}</div>
           <span className="pronouns">{email.split("@")[0]}</span>
           <span className="pronouns">Gender : {genderfunc({ gender })} </span>
           <span className="pronouns">Food Choice : {foodfunc({ food })} </span>
@@ -123,6 +123,34 @@ export default function RoommateCard({
             %
           </div>
         </div>
+      </div> */}
+      <div className="roommateCard">
+        <div className="image-avatar"></div>
+          {/* <div className="name">{name}</div> */}
+          <div className="rm-name">{email.split("@")[0]}</div>
+          <div className="rm-gender">Gender : {genderfunc({ gender })} </div>
+          <div className="rm-food">Food Choice : {foodfunc({ food })} </div>
+          <div className="rm-smokes">Smokes : {yesOrNoS({ smoke })}</div>
+          <div className="rm-drinks">Drinks : {yesOrNoD({ drink })}</div>
+          <div className="rm-cooks">Cooks : {yesOrNoC({ cook })}</div>
+          <div className="rm-job">Work : {workfunc({ work })}</div>
+          <div className="rm-pet">Pet : {yesOrNoP({ pet })}</div>
+          <div className="rm-compatability">
+            {percentfunc(
+              { food },
+              { gender },
+              { smoke },
+              { drink },
+              { work },
+              { pet },
+              { cook }
+            )}{" "}
+            % MATCH
+          </div>
+          <div className="rm-buttons">
+            <button className="roommateCard-btn">Yes</button>
+            <button className="roommateCard-btn">No</button>
+          </div>
       </div>
     </>
   );

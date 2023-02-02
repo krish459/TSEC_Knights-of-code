@@ -1,4 +1,4 @@
-.roommateCard{
+/* .roommateCard{
     display: flex;
     gap: 6rem;
     border-radius: 5px;
@@ -55,4 +55,59 @@
 }
 .compatability:hover{
     box-shadow: -7px 7px 20px rgba(0, 0, 0, 0.25), 7px 7px 20px rgba(0, 0, 0, 0.47);
+} */
+
+.roommateCard{
+    position: relative;
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #C9FBB7;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+}
+
+
+.image-avatar{
+    position: absolute;
+    height: 10rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-size: cover;
+    background-image: url("https://images.unsplash.com/photo-1551963831-b3b1ca40c98e");
+    align-self: center;
+    transform: translateY(-50%);
+}
+
+.rm-name{
+    margin-top: 6rem;
+    align-self: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.rm-buttons{
+    margin-top: 1rem;
+    display: flex;
+    gap:2rem;
+    align-self: center;
+}
+
+.roommateCard-btn{
+    width: min-content;
+    padding: 1rem 4rem;
+}
+
+.rm-compatability{
+    width: 100%;
+    text-align: center;
+    background-color: #A1E18A;
+    margin-block: 1rem ;
+    transform: scale(1.2);
+}
+
+.rm-slider{
+    width: 25rem;
 }
