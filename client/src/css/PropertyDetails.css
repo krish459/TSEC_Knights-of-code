@@ -1,0 +1,23 @@
+.propertyDetails{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: aqua;
+    padding: 2rem;
+}
+
+.input-propertyDetails{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+button{
+    width: 10rem;
+}

@@ -14,11 +14,17 @@ export default function Navbar(){
     }
 
     return(
-        <nav className="navbar">
+        <nav className="navbar-main">
             <NavLink to="/">
-                <img src={logo} alt="logo" />
+                <img src={logo} alt="logo" width="5rem" />
             </NavLink>
             <ul className="nav-list" data-visible = {navBarOpen}>
+                <li className="nav-list-item">
+                    <NavLink to="/">Home</NavLink>
+                </li>
+                <li className="nav-list-item">
+                    <NavLink to="/propertyposting">Post a Property</NavLink>
+                </li>
                 <li className="nav-list-item">
                     <NavLink to="/signup">SignUp/Login</NavLink>
                 </li>

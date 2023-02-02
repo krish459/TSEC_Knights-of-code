@@ -1,0 +1,35 @@
+.pp-container{
+    padding: 3rem 2rem;
+    height: 85vh;
+}
+
+.propertyPosting{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 2.5fr;
+    place-items: center;
+}
+
+.sidebar{
+    height: 100%;
+    width: 100%;
+    background-color:beige;
+    padding: 0rem 2rem;
+}
+
+.field-classes{
+    margin-top: 2rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+.selected-field-class{
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar > ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

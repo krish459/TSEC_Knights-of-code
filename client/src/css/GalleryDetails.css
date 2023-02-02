@@ -1,0 +1,22 @@
+.galleryDetails{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    padding: 2rem;
+}
+
+.uploadImages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    aspect-ratio: 1;
+    background-color: aquamarine;
+    margin-block: 2rem;
+}

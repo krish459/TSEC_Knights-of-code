@@ -1,0 +1,24 @@
+.accomodationDetails{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    padding: 2rem;
+}
+
+.input-accomodationDetails{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.description{
+    width: 100%;
+    height: 5rem;
+}
