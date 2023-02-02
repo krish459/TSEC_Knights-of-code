@@ -43,11 +43,11 @@ const Signup = () => {
         firstname: data.get("firstname"),
         lastname: data.get("lastname"),
         phone: data.get("phone"),
-        dob: data.get("dob"),
+        dob: data.get("DOB"),
         gender: data.get("gender"),
       });
       const response = await axios.post(
-        "https://db06-103-246-224-134.in.ngrok.io/account/signup/",
+        "https://flatmate.pythonanywhere.com/account/signup/",
         data
       );
       console.log(response);
@@ -136,7 +136,7 @@ const Signup = () => {
                   id="DOB"
                   inputformat="YYYY-MM-DD"
                   label="DOB(YYYY-MM-DD)"
-                  name="dob"
+                  name="DOB"
                   autoComplete="dob"
                 />
               </Grid>

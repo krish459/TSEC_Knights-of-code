@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Signup from "./components/Signup";
 // import AddressSelection from "./elements/AddressSelection";
 import Login from "./components/Login";
-// import Signup from "./components/Signup";
+// import Form from "./components/Form";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/form" element={<Form />} /> */}
       </Routes>
       {/* <Signup /> */}
       {/* <Login /> */}

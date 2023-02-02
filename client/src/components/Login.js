@@ -28,7 +28,7 @@ const Login = () => {
       //   lastname: data.get("lastname"),
       // });
       const response = await axios.post(
-        "https://db06-103-246-224-134.in.ngrok.io/account/login/",
+        "https://flatmate.pythonanywhere.com/account/login/",
         data
       );
       console.log(response);
