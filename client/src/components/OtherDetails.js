@@ -21,16 +21,16 @@ const OtherDetails = () => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
       data.append("token", localStorage.getItem("token"));
-      //   console.log({
-      //     food: data.get("food"),
-      //     smoke: data.get("smoker"),
-      //     drink: data.get("drinker"),
-      //     pet: data.get("pet"),
-      //     cook: data.get("cook"),
-      //     work: data.get("job"),
-      //     gender: data.get("gender"),
-      //     token: data.get("token"),
-      //   });
+        console.log({
+          food: data.get("food"),
+          smoke: data.get("smoker"),
+          drink: data.get("drinker"),
+          pet: data.get("pet"),
+          cook: data.get("cook"),
+          work: data.get("job"),
+          gender: data.get("gender"),
+          token: data.get("token"),
+        });
 
       localStorage.setItem("food", data.get("food"));
       localStorage.setItem("smoker", data.get("smoker"));
@@ -42,7 +42,7 @@ const OtherDetails = () => {
       localStorage.setItem("token", data.get("token"));
 
       let pathname1 = "/login";
-      let pathname2 = "/";
+      let pathname2 = "/findaroommate";
       data.get("token") ? navigate(pathname1) : navigate(pathname2);
     } catch (error) {
       console.log(error);

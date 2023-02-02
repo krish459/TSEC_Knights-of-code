@@ -5,18 +5,18 @@
     width: fit-content;
 }
 
-.info{
+.apt-info{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin: 1rem;
 }
 
-.apartment-image{
+.apt-image{
     margin-left: 4rem;
 }
 
-.apartment-image img{
+.apt-image img{
     max-height: 13rem;
     aspect-ratio: 3/4;
 }
