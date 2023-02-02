@@ -36,6 +36,14 @@ User = get_user_model()
 #         userProfile = UserDetailsSerializer(user_detail, many=False, context={'request': request})
 #         return JsonResponse(userProfile.data, status = status.HTTP_200_OK)
 
+class AllHouseView(generics.ListAPIView):
+    serializer_class = HouseSerializer
+    def list(self,request):
+        queryset = House.objects.all()
+        serializer = HouseSerializer(queryset, many = True)
+        return JsonResponse(serializer.data,safe = False, status = status.HTTP_200_OK)
+
+
 
 class HouseView(APIView):
     serializer_class = HouseSerializer

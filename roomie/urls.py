@@ -6,5 +6,6 @@ urlpatterns = [
     path('house/<int:pk>/', views.HouseView.as_view(), name = 'house'),
     path('wia/', views.WIAView.as_view(), name = 'wia'),
     path('all-wia/',views.AllwiaView.as_view(), name="AllWia"),
+    path('all-house/',views.AllHouseView.as_view(), name="AllHouse")
 
 ]
