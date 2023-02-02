@@ -8,7 +8,7 @@ import PropertyPosting from "./components/PropertyPosting";
 import Login from "./components/Login";
 import PropertyList from "./components/PropertyList";
 import MyDetails from "./components/MyDetails";
-// import Form from "./components/Form";
+import OtherDetails from "./components/OtherDetails";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/propertyposting" element={<PropertyPosting />} />
         <Route path="/propertylist" element={<PropertyList />} />
         <Route path="/mydetails" element={<MyDetails />} />
+        <Route path="/otherdetails" element={<OtherDetails />} />
       </Routes>
       {/* <Signup /> */}
       {/* <Login /> */}
