@@ -2,6 +2,19 @@ from django.db import models
 from accounts.models import User
 # Create your models here.
 
+class WhatIAm(models.Model):
+    email = models.EmailField(max_length=255, unique=True)
+    food = models.IntegerField()
+    smoker = models.IntegerField()
+    drinker = models.IntegerField()
+    pet = models.IntegerField()
+    gender = models.IntegerField()
+    cook = models.IntegerField()
+    job = models.IntegerField()
+
+    def __str__(self):
+        return self.email
+
 class House(models.Model):
     user_details = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     address = models.TextField(max_length=600)

@@ -12,9 +12,9 @@ from drf_spectacular.types import OpenApiTypes
 from rest_framework import (mixins, generics, status, permissions)
 from rest_framework.response import Response
 
-from .models import user_details, House
+from .models import user_details, House, WhatIAm
 
-from .serializers import HouseSerializer
+from .serializers import HouseSerializer, WhatIAmSerializer
 
 from accounts.serializers import UserSerializer
 # Create your views here.
@@ -75,3 +75,37 @@ class HouseView(APIView):
             return JsonResponse(serializer.data, status = status.HTTP_202_ACCEPTED)
         return JsonResponse(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
         
+
+
+class WIAView(APIView):
+    serializer_class = WhatIAmSerializer
+
+    def get(self, request):
+        try:
+            user=User.objects.get(email = request.data.get('email'))
+        except User.DoesNotExist:
+            content = {'detail': 'No such user exists'}
+            return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
+        try:
+            wia=WhatIAm.objects.get(email = user.email)
+        except WhatIAm.DoesNotExist:
+            content = {'detail': 'No preference exists'}
+            return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
+        wias = WhatIAmSerializer(wia, many=False, context={'request': request})
+        return JsonResponse(wias.data, status = status.HTTP_200_OK)
+
+
+    def post(self, request):
+        try:
+            user=User.objects.get(email = request.data.get('email'))
+        except User.DoesNotExist:
+            content = {'detail': 'No such user exists'}
+            return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
+
+        serializer = WhatIAmSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status = status.HTTP_202_ACCEPTED)
+        return JsonResponse(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+

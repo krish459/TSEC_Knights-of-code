@@ -1,4 +1,4 @@
-from .models import user_details,House, house_gallary, previous_stay, education, work
+from .models import user_details,House, house_gallary, previous_stay, education, work, WhatIAm
 from rest_framework import serializers
 
 
@@ -12,6 +12,12 @@ from rest_framework import serializers
 #     class Meta:
 #         model = user_work
 #         fields = '__all__'
+
+class WhatIAmSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WhatIAm
+        fields = '__all__'
+
 
 class HouseSerializer(serializers.ModelSerializer):
     class Meta:
