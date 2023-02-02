@@ -6,6 +6,7 @@ import GalleryDetails from "../elements/GalleryDetails";
 
 export default function PropertyPosting(){
 
+    document.getElementById("navbar-m").style.transform = "translateY(0rem)"
     const [page, setPage] = useState(0)
 
     let mainComponent
@@ -24,7 +25,8 @@ export default function PropertyPosting(){
 
 
     return(
-        <div className="propertyPosting pp-container">
+      <div className='propertyPosting'>
+        <div className="pp-container">
             <div className="sidebar">
                 <ul className='field-class-list'>
                     <li className="field-classes" onClick={()=> setPage(0)}>Property Details</li>
@@ -34,5 +36,6 @@ export default function PropertyPosting(){
             </div>
             {mainComponent}
         </div>
+      </div>
     )
 }

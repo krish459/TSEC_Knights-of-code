@@ -1,0 +1,22 @@
+.hero{
+    position: relative;
+    background-image: url("../assets/bae.jpg");
+    background-color: aqua;
+    width: 100%;
+    height: 50rem;
+    background-size: cover;
+    background-position: center;
+    transform: translateY(-5rem);
+}
+
+.hero-text{
+    position: absolute;
+    top: 40%;
+    right: 5rem;
+    color: black;
+    text-align: right;
+}
+
+.hero-text p{
+    max-width: 30ch;
+}

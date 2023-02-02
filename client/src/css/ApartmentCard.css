@@ -1,0 +1,22 @@
+.apartmentCard{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.apartment-image{
+    margin-left: 4rem;
+}
+
+.apartment-image img{
+    max-height: 13rem;
+    aspect-ratio: 3/4;
+}

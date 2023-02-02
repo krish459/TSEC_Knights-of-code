@@ -1,13 +1,17 @@
-.pp-container{
-    padding: 3rem 2rem;
-    height: 85vh;
+.propertyPosting{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.propertyPosting{
+
+.pp-container{
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 2.5fr;
     place-items: center;
+    padding: 3rem 2rem;
+    height: 85vh;
 }
 
 .sidebar{

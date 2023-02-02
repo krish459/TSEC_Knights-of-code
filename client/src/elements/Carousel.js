@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowLeft, faArrowRight} from '@fortawesome/free-solid-svg-icons'
 
 import Slider from "react-slick";
-import one from '../assets/1.jpg'
-import two from '../assets/2.jpg'
-import three from '../assets/3.jpg'
-import four from '../assets/4.jpg'
-import five from '../assets/5.jpg'
-import six from '../assets/6.jpg'
+import one from '../assets/car1.jpg'
+import two from '../assets/car2.jpg'
+import three from '../assets/car3.jpg'
+import four from '../assets/car4.jpg'
+import five from '../assets/car5.jpg'
+import six from '../assets/car6.webp'
 
 export default function Carousel(){
 
