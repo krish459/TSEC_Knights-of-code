@@ -19,11 +19,13 @@ import {
 import axios from "axios";
 import Navbar from "../elements/Navbar";
 import { v4 as uuidv4 } from "uuid";
-import { Grid, MenuItem, TextField } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
+import Loading from "./Loading";
 
 export default function Profile() {
   const [list, setList] = React.useState([]);
   const [name, setName] = React.useState("");
+  const [profiledata, setProfiledata] = useState();
   const accessId = localStorage.getItem("token");
 
   const loadList = async () => {
@@ -35,11 +37,10 @@ export default function Profile() {
         },
       }
     );
-    console.log("wewewewe");
     console.log(result);
-    // setProfiledata(result);
+    setProfiledata(result);
   };
-  const [profiledata, setProfiledata] = useState(loadList());
+
   // console.log(accessId);
 
   useEffect(() => {
@@ -57,30 +58,10 @@ export default function Profile() {
 
     setName("");
   }
-  const Food = [
-    {
-      value: "veg",
-      label: "VEG",
-    },
-    {
-      value: "nonveg",
-      label: "NON VEG",
-    },
-    {
-      value: "jain",
-      label: "JAIN",
-    },
-  ];
-  const drinker = [
-    {
-      value: "yes",
-      label: "Yes",
-    },
-    {
-      value: "no",
-      label: "No",
-    },
-  ];
+
+  if (!profiledata) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -166,7 +147,6 @@ export default function Profile() {
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
                         {profiledata.data.firstname} {profiledata.data.lastname}
-                        {/* nnof */}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -178,7 +158,6 @@ export default function Profile() {
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
                         {profiledata.data.email}
-                        {/* anca */}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -189,8 +168,7 @@ export default function Profile() {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        {/* {profiledata.data.phone} */}
-                        cln
+                        {profiledata.data.phone}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -201,8 +179,7 @@ export default function Profile() {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        {/* {profiledata.data.DOB} */}
-                        ampa
+                        {profiledata.data.DOB}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -213,8 +190,7 @@ export default function Profile() {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        {/* {profiledata.data.gender} */}
-                        cnai
+                        {profiledata.data.gender}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -226,38 +202,7 @@ export default function Profile() {
                   <MDBCard className="mb-4 mb-md-0">
                     <MDBCardBody style={{ height: "21rem" }}>
                       <MDBCardText className="mb-4">Preferences</MDBCardText>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          id="outlined-select-currency"
-                          select
-                          label="FOOD TYPE"
-                          defaultValue="male"
-                          name="food"
-                          style={{ width: "12rem" }}
-                        >
-                          {Food.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))}
-                        </TextField>
-                      </Grid>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          id="outlined-select-currency"
-                          select
-                          label="Are you a casual drinker?"
-                          defaultValue="male"
-                          name="drinker"
-                          style={{ width: "12rem", top: "2rem" }}
-                        >
-                          {drinker.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))}
-                        </TextField>
-                      </Grid>
+
                       <Grid item xs={12} sm={6}>
                         <TextField
                           autoComplete="hobbies"

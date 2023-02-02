@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { Checkbox, FormControlLabel, MenuItem } from "@mui/material";
 import GoogleButton from "react-google-button";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 const Signup = () => {
@@ -32,25 +33,20 @@ const Signup = () => {
       label: "Other",
     },
   ];
-
+  let navigate = useNavigate();
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
-      console.log({
-        email: data.get("email"),
-        password: data.get("password"),
-        firstname: data.get("firstname"),
-        lastname: data.get("lastname"),
-        phone: data.get("phone"),
-        dob: data.get("DOB"),
-        gender: data.get("gender"),
-      });
+
       const response = await axios.post(
         "https://flatmate.pythonanywhere.com/account/signup/",
         data
       );
       console.log(response);
+      localStorage.setItem("email", response.data.email);
+      let pathname = "/mydetails";
+      navigate(pathname);
     } catch (error) {
       console.log(error);
     }
@@ -170,6 +166,7 @@ const Signup = () => {
                 />
               </Grid>
             </Grid>
+
             <Button
               type="submit"
               fullWidth
