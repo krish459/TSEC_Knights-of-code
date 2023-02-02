@@ -11,6 +11,7 @@ class WhatIAm(models.Model):
     gender = models.CharField(max_length = 2)
     cook = models.CharField(max_length = 2)
     job = models.CharField(max_length = 2)
+    city = models.CharField(max_length = 200)
 
     def __str__(self):
         return self.email
