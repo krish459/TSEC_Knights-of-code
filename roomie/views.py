@@ -12,9 +12,9 @@ from drf_spectacular.types import OpenApiTypes
 from rest_framework import (mixins, generics, status, permissions)
 from rest_framework.response import Response
 
-from .models import user_details, House, WhatIAm, WhatIWant
+from .models import user_details, House, WhatIAm, WhatIWant, house_gallary
 
-from .serializers import HouseSerializer, WhatIAmSerializer, WhatIWantSerializer
+from .serializers import HouseSerializer, WhatIAmSerializer, WhatIWantSerializer,HouseGallarySerializer
 
 from accounts.serializers import UserSerializer
 # Create your views here.
@@ -43,7 +43,23 @@ class AllHouseView(generics.ListAPIView):
         serializer = HouseSerializer(queryset, many = True)
         return JsonResponse(serializer.data,safe = False, status = status.HTTP_200_OK)
 
+class HouseImageView(APIView):
+    serializer_class = HouseGallarySerializer
 
+    def get(self, request,pk):
+        try:
+            home = House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            content = {'detail': 'No such house exists'}
+            return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
+        
+        hg = house_gallary.objects.filter(house = home)
+        if hg.exists():
+            houses = HouseGallarySerializer(hg, many=True, context={'request': request})
+            return JsonResponse(houses.data, safe = False, status = status.HTTP_200_OK)
+        else:
+            content = {'detail': 'No houses'}
+            return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
 
 class HouseView(APIView):
     serializer_class = HouseSerializer

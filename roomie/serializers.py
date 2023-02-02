@@ -33,7 +33,7 @@ class HouseSerializer(serializers.ModelSerializer):
 
 class HouseGallarySerializer(serializers.ModelSerializer):
     class Meta:
-        models = house_gallary
+        model = house_gallary
         fields = '__all__'
 
 
