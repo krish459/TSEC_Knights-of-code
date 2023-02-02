@@ -25,3 +25,8 @@ img, picture, svg,video{
   height: 100vh;
   width: 100%;
 }
+
+ul,li{
+  margin: 0;
+  padding: 0;
+}

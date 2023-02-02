@@ -1,0 +1,52 @@
+.footer{
+    padding: 3rem;
+    background-color: peachpuff;
+}
+
+.upperFooter{
+    display: grid;
+    place-items: center;
+    margin-bottom: 1rem;
+}
+
+.column1{
+    grid-column: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+.help-list, .community-list, .developers-list{
+    list-style: none;
+}
+ 
+.help-list, .community-list, .developers-list {
+    margin: 0;
+    padding: 0;
+    min-width: 8rem;
+    text-align: center;
+}
+
+.help-title, .community-title, .developers-title{
+    min-width: 8rem;
+    text-align: center;
+}
+
+.footer-line{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(159, 142, 142);
+    margin-block: 2rem;
+}
+
+.lowerFooter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.lowerFooter *{
+    min-width: 8rem;
+    text-align: center;
+}
