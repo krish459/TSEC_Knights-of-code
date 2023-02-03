@@ -10,11 +10,11 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 body{
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
 }
 
 img, picture, svg,video{

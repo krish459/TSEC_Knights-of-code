@@ -53,6 +53,9 @@ export default function Carousel(){
             {images.map((img, idx) => (
             <div key = {idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
                 <img src={img} alt={img} />
+                <div className="carousel-content">
+                  Content for cards Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam architecto dolore id nulla, natus, dignissimos dolorem dolorum labore odit distinctio delectus? Iure, earum cupiditate rerum esse magnam quod odio quidem.
+                </div>
             </div>
             ))}
         </Slider>
