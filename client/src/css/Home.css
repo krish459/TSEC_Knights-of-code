@@ -26,3 +26,7 @@
     max-width: 28ch;
     font-size: 1.5rem;
 }
+
+.home-container{
+    padding-inline: 3rem;
+}

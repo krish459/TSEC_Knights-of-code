@@ -17,13 +17,14 @@ export default function Home() {
             <p>Finding not only homes but even your homies!</p>
           </div>
         </div>
-        {/* </div> */}
-        <Carousel />
-        <div className="flex flex-row gap-x-32 mx-auto w-83 justify-center h-30 ">
-          <Budget />
-          <TasksProgress />
-          <TotalProfit />
-          <TotalCustomers />
+        <div className="home-container">
+          <Carousel />
+          <div className="flex flex-row gap-x-32 mx-auto w-83 justify-center h-30 ">
+            <Budget />
+            <TasksProgress />
+            <TotalProfit />
+            <TotalCustomers />
+          </div>
         </div>
       </div>
     </>

@@ -8,10 +8,10 @@
     background-position: center;
 }
 
-.next{
+.rm-next{
   transform: translateX(150%);
 }
 
-.prev{
+.rm-prev{
   transform: translateX(-150%);
 }
