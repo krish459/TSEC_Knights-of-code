@@ -8,24 +8,24 @@ import { TotalCustomers } from "./TotalCustomers";
 
 export default function Home() {
   return (
-    <div className="home">
-      <Navbar />
-      <div className="hero">
-        <div className="hero-text">
-          <h1>Our Aim</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-            voluptates a neque eius at? Assumenda veritatis dignissimo
-          </p>
+    <>
+      <div className="home">
+        <Navbar />
+        <div className="hero">
+          <div className="hero-text">
+            <h1>Our Aim</h1>
+            <p>Finding not only homes but even your homies!</p>
+          </div>
+        </div>
+        {/* </div> */}
+        <Carousel />
+        <div className="flex flex-row gap-x-32 mx-auto w-83 justify-center h-30 ">
+          <Budget />
+          <TasksProgress />
+          <TotalProfit />
+          <TotalCustomers />
         </div>
       </div>
-      <Carousel />
-      <div className="flex flex-row gap-x-32 mx-auto w-83 justify-center h-30 ">
-        <Budget />
-        <TasksProgress />
-        <TotalProfit />
-        <TotalCustomers />
-      </div>
-    </div>
+    </>
   );
 }
