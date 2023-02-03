@@ -29,8 +29,6 @@ export default function RoommateList() {
     return <Loading />;
   }
 
-<<<<<<< HEAD
-=======
   const NextArrow = ({ onClick }) => {
     return (
       <div className="arrow next" onClick={onClick}>
@@ -64,7 +62,6 @@ export default function RoommateList() {
 
 
 
->>>>>>> edae429 (Added Tinder like Property)
   return (
     <div className="roommateList">
       <Filter/>
