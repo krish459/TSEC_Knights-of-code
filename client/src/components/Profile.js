@@ -21,6 +21,7 @@ import Navbar from "../elements/Navbar";
 import { v4 as uuidv4 } from "uuid";
 import { Grid, TextField, ToggleButton } from "@mui/material";
 import Loading from "./Loading";
+import Navbar2 from "../elements/Navbar2";
 
 export default function Profile() {
   const [list, setList] = React.useState([]);
@@ -82,7 +83,7 @@ export default function Profile() {
   }
   return (
     <>
-      <Navbar />
+      <Navbar2/>
 
       <section style={{ backgroundColor: "#eee" }}>
         <MDBContainer className="py-5">

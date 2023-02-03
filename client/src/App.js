@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import MyDetails from "./components/MyDetails";
 import OtherDetails from "./components/OtherDetails";
 import Footer from "./elements/Footer";
+import ApartmentInfo from "./components/ApartmentInfo";
 
 function App() {
   window.onscroll = function () {
@@ -31,8 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      /* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
@@ -42,6 +42,7 @@ function App() {
         <Route path="/findaroommate" element={<RoommateList />} />
         <Route path="/findanapartment" element={<ApartmentList />} />
         <Route path="/otherdetails" element={<OtherDetails />} />
+        <Route path="/apartmentinfo" element={<ApartmentInfo/>} />
       </Routes>
       <Footer />
     </div>

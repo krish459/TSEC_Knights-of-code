@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Checkbox, FormControlLabel, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Navbar2 from "../elements/Navbar2";
 
 const theme = createTheme();
 const OtherDetails = () => {
@@ -128,6 +129,8 @@ const OtherDetails = () => {
     },
   ];
   return (
+    <>
+    <Navbar2/>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -302,6 +305,7 @@ const OtherDetails = () => {
         {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
+    </>
   );
 };
 

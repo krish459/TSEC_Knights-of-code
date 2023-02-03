@@ -1,0 +1,62 @@
+.apartmentInfo{
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+
+.apartmentInfoCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: start;
+    gap: 5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2rem;
+}
+
+.apt-info-general-dets span{
+    margin-right: 2rem;
+}
+
+.apt-info-general-dets div{
+    margin-block: 1rem;
+}
+
+.apt-info-images{
+    display: flex;
+    gap: 2rem;
+}
+
+.apt-info-image1{
+    width: 10rem;
+    aspect-ratio: 1;
+    background-image: url('../assets/into-img-apt.jpg');
+}
+
+.apt-info-image2{
+    width: 10rem;
+    aspect-ratio: 1;
+    background-image: url('../assets/into-img-apt.jpg');
+}
+
+.apt-info-apt-image{
+    height: 25rem;
+    aspect-ratio: 1;
+    background-image: url('../assets/into-img-apt.jpg');
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right a{
+    margin-top: 2rem;
+}
+
+.two-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}

@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
+import Navbar2 from "../elements/Navbar2";
 // import { Card } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -43,6 +44,8 @@ const Login = () => {
   };
   return (
     // <Card variant="outlined">
+    <>
+    <Navbar2/>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -115,7 +118,8 @@ const Login = () => {
         {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
-    // </Card>
+    {/* </Card> */}
+    </>
   );
 };
 

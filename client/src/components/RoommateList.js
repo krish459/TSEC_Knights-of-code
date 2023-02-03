@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import Slider from "react-slick";
+import Navbar2 from "../elements/Navbar2";
 
 export default function RoommateList() {
   const [profiledata, setProfiledata] = useState();
@@ -48,7 +49,7 @@ export default function RoommateList() {
     infinite: true,
     lazyLoad: true,
     speed: 100,
-    slidesToShow: 1,
+    slidesToShow: 3,
     centerMode: true,
     centerPadding: 0,
     focusOnSelect: true,
@@ -57,27 +58,35 @@ export default function RoommateList() {
     beforeChange: (current, next) => setImageIndex(next),
   };
 
+
+
+
   return (
+    <>
+    <Navbar2/>
     <div className="roommateList">
+
       <Slider {...settings} className="rm-slider">
-        {profiledata.data.map(
-          (data, idx) =>
-            data.email !== localStorage.getItem("email") && (
-              <RoommateCard
-                className={idx === imageIndex ? "slide activeSlide" : "slide"}
-                key={data.id}
-                food={data.food}
-                gender={data.gender}
-                smoke={data.smoker}
-                drink={data.drinker}
-                work={data.job}
-                pet={data.pet}
-                cook={data.cook}
-                email={data.email}
-              />
-            )
-        )}
-      </Slider>
+            {profiledata.data.map((data,idx) => (
+          data.email !== localStorage.getItem("email") && 
+          data.city === localStorage.getItem("city") && (
+            <RoommateCard
+              className={idx === imageIndex ? "rm-slide rm-activeSlide" : "rm-slide"}
+              key={data.id}
+              food={data.food}
+              gender={data.gender}
+              smoke={data.smoker}
+              drink={data.drinker}
+              work={data.job}
+              pet={data.pet}
+              cook={data.cook}
+              email={data.email}
+              city={data.city}
+            />
+          )
+            ))}
+        </Slider>
+
 
       {/* {profiledata.data.map((data) => {
         return (
@@ -100,5 +109,6 @@ export default function RoommateList() {
         );
       })} */}
     </div>
+    </>
   );
 }

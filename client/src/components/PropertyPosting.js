@@ -3,6 +3,7 @@ import { useState } from "react";
 import PropertyDetails from "../elements/PropertyDetails";
 import AccomodationDetails from "../elements/AccomodationDetails";
 import GalleryDetails from "../elements/GalleryDetails";
+import Navbar2 from "../elements/Navbar2";
 
 export default function PropertyPosting() {
   // document.getElementById("navbar-m").style.transform = "translateY(0rem)"
@@ -23,25 +24,28 @@ export default function PropertyPosting() {
   }
 
   return (
-    <div className="propertyPosting">
-      <h1 className="h1style">Enter your details</h1>
-      <div className="pp-container">
-        
-        <div className="sidebar">
-          <ul className="field-class-list">
-            <li className="field-classes" onClick={() => setPage(0)}>
-              Property Details
-            </li>
-            <li className="field-classes" onClick={() => setPage(1)}>
-              Accomodation Details
-            </li>
-            <li className="field-classes" onClick={() => setPage(2)}>
-              Gallery Details
-            </li>
-          </ul>
+    <>
+      <Navbar2/>
+      <div className="propertyPosting">
+        <h1 className="h1style">Enter your details</h1>
+        <div className="pp-container">
+          
+          <div className="sidebar">
+            <ul className="field-class-list">
+              <li className="field-classes" onClick={() => setPage(0)}>
+                Property Details
+              </li>
+              <li className="field-classes" onClick={() => setPage(1)}>
+                Accomodation Details
+              </li>
+              <li className="field-classes" onClick={() => setPage(2)}>
+                Gallery Details
+              </li>
+            </ul>
+          </div>
+            {mainComponent}
         </div>
-        {mainComponent}
       </div>
-    </div>
+    </>
   );
 }

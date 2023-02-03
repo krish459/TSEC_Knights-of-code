@@ -5,3 +5,14 @@
     transform: translateY(-5rem);
     padding: 2rem;
 }
+
+.rm-slide {
+    transform: scale(0.6);
+    transition: transform 300ms;
+    opacity: 0.5;
+  }
+  
+.rm-activeSlide {
+    transform: scale(1);
+    opacity: 1;
+  }
