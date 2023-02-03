@@ -42,7 +42,7 @@ function App() {
         <Route path="/findaroommate" element={<RoommateList />} />
         <Route path="/findanapartment" element={<ApartmentList />} />
         <Route path="/otherdetails" element={<OtherDetails />} />
-        <Route path="/apartmentinfo" element={<ApartmentInfo/>} />
+        <Route path="/apartmentinfo/:id" element={<ApartmentInfo />} />
       </Routes>
       <Footer />
     </div>

@@ -9,45 +9,48 @@ import Loading from "./Loading";
 export default function ApartmentList() {
   const [profiledata, setProfiledata] = useState();
   const mateList = async () => {
-    // const result = await axios.get(
-    //   "https://flatmate.pythonanywhere.com/roomie/all-house/"
-    // );
-    // console.log(result);
-    // setProfiledata(result);
+    const result = await axios.get(
+      "https://flatmate.pythonanywhere.com/roomie/all-house/"
+    );
+    console.log(result);
+    setProfiledata(result);
   };
   useEffect(() => {
     mateList();
   }, []);
 
-  // if (!profiledata) {
-  //   return <Loading />;
-  // }
+  if (!profiledata) {
+    return <Loading />;
+  }
   return (
     <>
-      <Navbar2/>
+      <Navbar2 />
       <div className="apartmentList">
         <div className="intro-img-apt"></div>
         <Filter />
-        {/* {profiledata.data.map((data) => { 
-          return <ApartmentCard className="apt-card" key={data.id} 
-          
-          />;
-        })} */}
         <div className="two-columns">
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
-          <ApartmentCard className="apt-card"/>
+          {profiledata.data.map((data) => {
+            return (
+              <ApartmentCard
+                className="apt-card"
+                key={data.id}
+                image={data.image}
+                owner_name = {data.owner_name}
+                address={data.address}
+                area={data.area}
+                bhk={data.bhk}
+                city={data.city}
+                country={data.country}
+                description={data.description}
+                flr_no={data.flr_no}
+                property_age={data.property_age}
+                rent={data.rent}
+                state={data.state}
+                user_details={data.user_details}
+                id={data.id}
+              />
+            );
+          })}
         </div>
       </div>
     </>
