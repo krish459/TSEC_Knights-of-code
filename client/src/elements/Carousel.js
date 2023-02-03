@@ -61,3 +61,12 @@ export default function Carousel(){
         </Slider>
     )
 }
+/**
+ * slide 1 2 step verification in order to authenticate the user to furthur browse through the site
+ * slide 2 Suggest closest match of tenanats by finding out the roomie that suits you the most according topo you 
+ * slide 3 Find the ite that best suits you in terms of location pricing and carpet area and much more
+ * slide 4 find your roomie and talk to them vu=ia video call and whatsapp then find the room together
+ * slide 5 2 ways user authentication and approva of the calculated match and hence verify your roomie yourself
+ * slide 6 Talk to the owner for the property listing and negotiate prices
+ * swipe up and down to either accept or decline the suggested matches
+ */
