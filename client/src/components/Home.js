@@ -11,8 +11,7 @@ export default function Home() {
         <div className="hero">
             <div className="hero-text">             
                 <h1>Our Aim</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Ratione voluptates a neque eius at? Assumenda veritatis dignissimo</p>
+                <p>Finding not only homes but even your homies!</p>
             </div>
         </div>
         <Carousel />
