@@ -19,13 +19,14 @@ import {
 import axios from "axios";
 import Navbar from "../elements/Navbar";
 import { v4 as uuidv4 } from "uuid";
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, ToggleButton } from "@mui/material";
 import Loading from "./Loading";
 
 export default function Profile() {
   const [list, setList] = React.useState([]);
   const [name, setName] = React.useState("");
   const [profiledata, setProfiledata] = useState();
+  const [profiledata1, setProfiledata1] = useState();
   const accessId = localStorage.getItem("token");
 
   const loadList = async () => {
@@ -40,11 +41,28 @@ export default function Profile() {
     console.log(result);
     setProfiledata(result);
   };
+  const loadList1 = async () => {
+    // const data = new FormData();
+    // data.append("email", localStorage.getItem("email"));
+
+    const result1 = await axios.get(
+      "https://flatmate.pythonanywhere.com/roomie/wia/",
+      {
+        headers: {
+          email: localStorage.getItem("email"),
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(result1);
+    setProfiledata1(result1);
+  };
 
   // console.log(accessId);
 
   useEffect(() => {
     loadList();
+    loadList1();
   }, []);
 
   function handleChange(event) {
@@ -59,10 +77,9 @@ export default function Profile() {
     setName("");
   }
 
-  if (!profiledata) {
+  if (!profiledata && !profiledata1) {
     return <Loading />;
   }
-
   return (
     <>
       <Navbar />
@@ -76,7 +93,11 @@ export default function Profile() {
               <MDBCard className="mb-4">
                 <MDBCardBody className="text-center">
                   <MDBCardImage
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                    src={
+                      !profiledata.data.image
+                        ? "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                        : profiledata.data.image
+                    }
                     alt="avatar"
                     className="rounded-circle"
                     style={{
@@ -201,19 +222,26 @@ export default function Profile() {
                 <MDBCol md="6">
                   <MDBCard className="mb-4 mb-md-0">
                     <MDBCardBody style={{ height: "21rem" }}>
-                      <MDBCardText className="mb-4">Preferences</MDBCardText>
+                      <MDBCardText className="mb-4">
+                        Personal Details
+                      </MDBCardText>
 
+                      <Grid item sm={6}>
+                        <ToggleButton value="android">Smokes : No</ToggleButton>
+                      </Grid>
+                      <Grid item sm={6}>
+                        <ToggleButton value="android">Drinks : No</ToggleButton>
+                      </Grid>
                       <Grid item xs={12} sm={6}>
-                        <TextField
-                          autoComplete="hobbies"
-                          name="hobbies"
-                          required
-                          fullWidth
-                          id="hobbies"
-                          label="Hobbies"
-                          autoFocus
-                          style={{ top: "4rem" }}
-                        />
+                        <ToggleButton value="android">
+                          City : Mumbai
+                        </ToggleButton>
+                      </Grid>
+                      <Grid item xs={12} sm={6}>
+                        <ToggleButton value="android">Pets : No</ToggleButton>
+                      </Grid>
+                      <Grid item xs={12} sm={6}>
+                        <ToggleButton value="android">Cooks : Yes</ToggleButton>
                       </Grid>
                     </MDBCardBody>
                   </MDBCard>
@@ -226,6 +254,7 @@ export default function Profile() {
                       <div>
                         <div>
                           <input
+                            style={{ border: "2px solid black" }}
                             type="text"
                             value={name}
                             onChange={handleChange}

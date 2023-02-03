@@ -11,9 +11,11 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { Checkbox, FormControlLabel, MenuItem } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 const MyDetails = () => {
+  let navigate = useNavigate();
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -36,6 +38,8 @@ const MyDetails = () => {
         data
       );
       console.log(response);
+      let pathname = "/login";
+      navigate(pathname);
     } catch (error) {
       console.log(error);
     }

@@ -13,6 +13,7 @@
     place-items: center;
     padding: 3rem 2rem;
     height: 85vh;
+    border: 2px solid palevioletred;
 }
 
 .h1style{

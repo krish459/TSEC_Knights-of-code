@@ -14,9 +14,11 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 // import { Card } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 const Login = () => {
+  let navigate = useNavigate();
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -33,6 +35,8 @@ const Login = () => {
       );
       console.log(response);
       localStorage.setItem("token", response.data.access);
+      let pathname = "/";
+      navigate(pathname);
     } catch (error) {
       console.log(error);
     }

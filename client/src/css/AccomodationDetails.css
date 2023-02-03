@@ -7,7 +7,8 @@
     justify-content: center;
     background-color: white;
     padding: 2rem;
-    border: 4px;
+    border: 2px solid palevioletred;
+    border-radius: 10px;
 }
 
 .input-accomodationDetails{
