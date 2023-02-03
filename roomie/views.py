@@ -67,23 +67,13 @@ class HouseView(APIView):
 
     def get(self, request,pk):
         try:
-            user=User.objects.get(email = request.user)
-        except User.DoesNotExist:
-            content = {'detail': 'No such user exists'}
+            home = House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            content = {'detail': 'No such house exists'}
             return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
-        
-        if pk == 0:
-            houses = House.objects.filter(user_details = user)
-            if houses.exists():
-                houses = HouseSerializer(houses, many=True, context={'request': request})
-                return JsonResponse(houses.data, safe = False, status = status.HTTP_200_OK)
-            else:
-                content = {'detail': 'No houses'}
-                return JsonResponse(content, status = status.HTTP_404_NOT_FOUND)
-        else:
-            house = House.objects.all()
-            houses = HouseSerializer(house, many=True, context={'request': request})
-            return JsonResponse(houses.data, safe = False, status = status.HTTP_200_OK)
+        house = HouseSerializer(home, many=False, context={'request': request})
+        return JsonResponse(house.data, status = status.HTTP_200_OK)
+    
 
 
     def post(self, request,pk):

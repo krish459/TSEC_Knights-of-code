@@ -27,9 +27,15 @@ class WhatIWant(models.Model):
     job = models.CharField(max_length = 2)
     createdAt      = models.DateTimeField(auto_now_add = True)
 
+def upload_path_handler(instance, filename):
+    return "images/gallary/{label}/{file}".format(
+        label=instance.owner_name, file=filename
+    )
 
 class House(models.Model):
     user_details = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    owner_name = models.CharField(max_length =200)
+    image = models.ImageField(upload_to=upload_path_handler)
     address = models.TextField(max_length=600)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
