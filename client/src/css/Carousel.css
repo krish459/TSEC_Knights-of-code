@@ -9,7 +9,7 @@
   
   .slide {
     transform: scale(0.6);
-    transition: transform 300ms;
+    transition: transform .5s;
     opacity: 0.5;
   }
 
@@ -17,7 +17,10 @@
     opacity: 0;
     padding: 1rem;
     color: black;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  
+    backdrop-filter: blur(15px);
     border-radius: 20px 20px 0px 0px;
   }
   

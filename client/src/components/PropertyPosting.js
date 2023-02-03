@@ -32,13 +32,22 @@ export default function PropertyPosting() {
           
           <div className="sidebar">
             <ul className="field-class-list">
-              <li className="field-classes" onClick={() => setPage(0)}>
+              <li className="field-classes underlined" onClick={(event) => {
+                event.target.classList.toggle('underlined')
+                setPage(0)}
+                }>
                 Property Details
               </li>
-              <li className="field-classes" onClick={() => setPage(1)}>
+              <li className="field-classes" onClick={(event) => {
+                event.target.classList.toggle('underlined')
+                setPage(1)
+                }}>
                 Accomodation Details
               </li>
-              <li className="field-classes" onClick={() => setPage(2)}>
+              <li className="field-classes" onClick={(event) => {
+                event.target.classList.toggle('underlined')
+                setPage(2)
+                }}>
                 Gallery Details
               </li>
             </ul>

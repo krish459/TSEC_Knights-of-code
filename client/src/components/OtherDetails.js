@@ -1,3 +1,4 @@
+import '../css/OtherDetails.css'
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -131,6 +132,9 @@ const OtherDetails = () => {
   return (
     <>
     <Navbar2/>
+    <div className="otherDetails">
+<div className="otherDetsCard">
+
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -305,6 +309,8 @@ const OtherDetails = () => {
         {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
+</div>
+    </div>
     </>
   );
 };
