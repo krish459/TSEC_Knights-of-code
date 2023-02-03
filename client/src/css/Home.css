@@ -18,6 +18,11 @@
     text-align: right;
 }
 
+.hero-text h1{
+    font-size: 2.5rem;
+}
+
 .hero-text p{
     max-width: 30ch;
+    font-size: 1.5rem;
 }

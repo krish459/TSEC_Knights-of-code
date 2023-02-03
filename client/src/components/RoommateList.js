@@ -32,7 +32,7 @@ export default function RoommateList() {
   const NextArrow = ({ onClick }) => {
     return (
       <div className="arrow next" onClick={onClick}>
-        {/* <FontAwesomeIcon icon={faArrowRight} /> */}
+        <FontAwesomeIcon icon={faArrowRight}/>
       </div>
     );
   };
@@ -40,7 +40,7 @@ export default function RoommateList() {
   const PrevArrow = ({ onClick }) => {
     return (
       <div className="arrow prev" onClick={onClick}>
-        {/* <FontAwesomeIcon icon = {faArrowLeft} /> */}
+        <FontAwesomeIcon icon = {faArrowLeft}/>
       </div>
     );
   };
@@ -49,9 +49,9 @@ export default function RoommateList() {
     infinite: true,
     lazyLoad: true,
     speed: 100,
-    slidesToShow: 3,
+    slidesToShow: 1,
     centerMode: true,
-    centerPadding: 0,
+    centerPadding: -0,
     focusOnSelect: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
