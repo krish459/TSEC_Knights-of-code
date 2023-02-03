@@ -1,4 +1,23 @@
 import "../css/RoommateCard.css";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import { FaWhatsapp } from "react-icons/fa";
+import { FcVideoCall } from "react-icons/fc";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function RoommateCard({
   food,
@@ -17,6 +36,9 @@ export default function RoommateCard({
   //     if (gen.city === "3") return "Nashik";
   //     if (gen.city === "4") return "Surat";
   //   };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const genderfunc = (gen) => {
     if (gen.gender === "1") return "Male";
     if (gen.gender === "2") return "Female";
@@ -88,69 +110,60 @@ export default function RoommateCard({
 
   return (
     <>
-      {/* <div className="roommateCard">
-        <div className="info"> */}
-          {/* <div className="name">{name}</div>
-          <span className="pronouns">{email.split("@")[0]}</span>
-          <span className="pronouns">Gender : {genderfunc({ gender })} </span>
-          <span className="pronouns">Food Choice : {foodfunc({ food })} </span>
-          <span className="smokes">Smokes : {yesOrNoS({ smoke })}</span>
-          <span className="drinks">Drinks : {yesOrNoD({ drink })}</span>
-          <div className="cooks">Cooks : {yesOrNoC({ cook })}</div>
-          <span className="job">Work : {workfunc({ work })}</span>
-          <span className="pet">Pet : {yesOrNoP({ pet })}</span>
-          <span className="pet">City : {city}</span>
-          <div className="buttons">
-            <button className="roommateCard-btn">Yes</button>
-            <button className="roommateCard-btn">No</button>
-          </div>
-        </div>
-        <div className="roommate-image">
-          <img
-            src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
-            alt="kjuyhu"
-          />
-          <div className="compatability">
-            {percentfunc(
-              { food },
-              { gender },
-              { smoke },
-              { drink },
-              { work },
-              { pet },
-              { cook }
-            )}{" "}
-            %
-          </div>
-        </div>
-      </div> */}
       <div className="roommateCard">
         <div className="image-avatar"></div>
-          {/* <div className="name">{name}</div> */}
-          <div className="rm-name">{email.split("@")[0]}</div>
-          <div className="rm-gender">Gender : {genderfunc({ gender })} </div>
-          <div className="rm-food">Food Choice : {foodfunc({ food })} </div>
-          <div className="rm-smokes">Smokes : {yesOrNoS({ smoke })}</div>
-          <div className="rm-drinks">Drinks : {yesOrNoD({ drink })}</div>
-          <div className="rm-cooks">Cooks : {yesOrNoC({ cook })}</div>
-          <div className="rm-job">Work : {workfunc({ work })}</div>
-          <div className="rm-pet">Pet : {yesOrNoP({ pet })}</div>
-          <div className="rm-compatability">
-            {percentfunc(
-              { food },
-              { gender },
-              { smoke },
-              { drink },
-              { work },
-              { pet },
-              { cook }
-            )}{" "}
-            % MATCH
-          </div>
-          <div className="rm-buttons">
-            <button className="roommateCard-btn">Yes</button>
-            <button className="roommateCard-btn">No</button>
-          </div>
+        {/* <div className="name">{name}</div> */}
+        <div className="rm-name">{email.split("@")[0]}</div>
+        <div className="rm-gender">Gender : {genderfunc({ gender })} </div>
+        <div className="rm-food">Food Choice : {foodfunc({ food })} </div>
+        <div className="rm-smokes">Smokes : {yesOrNoS({ smoke })}</div>
+        <div className="rm-drinks">Drinks : {yesOrNoD({ drink })}</div>
+        <div className="rm-cooks">Cooks : {yesOrNoC({ cook })}</div>
+        <div className="rm-job">Work : {workfunc({ work })}</div>
+        <div className="rm-pet">Pet : {yesOrNoP({ pet })}</div>
+        <div className="rm-compatability">
+          {percentfunc(
+            { food },
+            { gender },
+            { smoke },
+            { drink },
+            { work },
+            { pet },
+            { cook }
+          )}{" "}
+          % MATCH
+        </div>
+        <div className="rm-buttons">
+          <button className="roommateCard-btn" onClick={handleOpen}>
+            Yes
+          </button>
+        </div>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Its A Match !!!
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Now you can connect with your roomie on Video call or whatsapp for
+              better understanding.
+            </Typography>
+            <Button>
+              <a href="https://db06-103-246-224-134.in.ngrok.io/">
+                <FcVideoCall size={50} />
+              </a>
+            </Button>
+            <Button>
+              <a href="https:/wa.me/919082230267">
+                <FaWhatsapp size={50} />
+              </a>
+            </Button>
+          </Box>
+        </Modal>
       </div>
     </>
   );

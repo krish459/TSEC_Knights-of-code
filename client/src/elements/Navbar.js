@@ -28,7 +28,11 @@ export default function Navbar() {
           <NavLink to="/propertyposting">Post a Property</NavLink>
         </li>
         <li className="nav-list-item">
-          <NavLink to="/signup">SignUp/Login</NavLink>
+          {!localStorage.getItem("token") ? (
+            <NavLink to="/signup">SignUp/Login</NavLink>
+          ) : (
+            <NavLink to="/profile">Profile</NavLink>
+          )}
         </li>
       </ul>
       <FontAwesomeIcon
