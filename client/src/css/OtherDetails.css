@@ -1,0 +1,11 @@
+.otherDetails{
+    display: grid;
+    place-items: center;
+}
+
+.otherDetsCard{
+    width: max-content;
+    height: max-content;
+    margin-top: 5rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}

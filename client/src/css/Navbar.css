@@ -1,5 +1,6 @@
 .navbar-m{
     transform: translateY(-5rem);
+    z-index: 1000;
 }
 
 
@@ -23,11 +24,11 @@
 
 
     padding: 2rem;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .navbar-main img{
-    height: 6rem;
+    height: 5rem;
 }
 
 .nav-list{

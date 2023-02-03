@@ -4,6 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Loading from "./Loading";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import infoApt from '../assets/info-apt.jpg'
 
 export default function ApartmentInfo() {
   const [profiledata, setProfiledata] = useState();
@@ -33,18 +34,26 @@ export default function ApartmentInfo() {
     <>
       <Navbar2 />
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto flex flex-wrap">
+        <div className="container px-5 py-24 mx-auto flex flex-wrap info-apt-card">
           <div className="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
             <div className="w-full sm:p-4 px-4 mb-6">
-              <h1 className="title-font font-medium text-xl mb-2 text-gray-900">
+              <h1 className="title-font font-medium text-xl mb-2 text-gray-900 info-apt-owner">
                 {profiledata.data.owner_name}
               </h1>
-              <div className="leading-relaxed">
-                {profiledata.data.description} Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Provident labore dolorem
-                voluptatibus, est amet iure in sint. Explicabo natus similique
-                id dolorum odio, odit distinctio, harum, minus tempore at
-                doloremque!
+              <div className="leading-relaxed info-apt-desc info">
+                <span>Description:</span> {profiledata.data.description} 
+                <div className="info-apt-address-dets info">
+                  <span>Address:</span> Vile Parle
+                </div>
+                <div className="info-apt-occupancy info">
+                  <span>Current Occupancy:</span> 2
+                </div>
+                <div className="safetyIndex info">
+                  <span>Safety Score:</span> 47
+                </div>
+                <div className="pollutionIndex info">
+                  <span>Pollution Index:</span> 169 US AQI
+                </div>
               </div>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
@@ -57,26 +66,26 @@ export default function ApartmentInfo() {
               <h2 className="title-font font-medium text-3xl text-gray-900">
                 {profiledata.data.property_age}
               </h2>
-              <p className="leading-relaxed">Property Age</p>
+              <p className="leading-relaxed">Property Age(yrs)</p>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
               <h2 className="title-font font-medium text-3xl text-gray-900">
-                {profiledata.data.rent}
+                {profiledata.data.rent}/-
               </h2>
-              <p className="leading-relaxed">Rent</p>
+              <p className="leading-relaxed">Rent per month</p>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
               <h2 className="title-font font-medium text-3xl text-gray-900">
                 4
               </h2>
-              <p className="leading-relaxed">Products</p>
+              <p className="leading-relaxed">Max Occupancy</p>
             </div>
           </div>
-          <div className="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+          <div className="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0 apt-info-image">
             <img
               src={
                 !`${profiledata.data.image}`
-                  ? "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9kZXJuJTIwaG91c2V8ZW58MHx8MHx8&w=1000&q=80"
+                  ? {infoApt}
                   : `${profiledata.data.image}`
               }
               alt="Home"

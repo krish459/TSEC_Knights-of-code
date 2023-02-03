@@ -50,3 +50,7 @@
 .h1style{
     margin-top: 4rem;
 }
+
+.underlined{
+    text-decoration: underline;
+}

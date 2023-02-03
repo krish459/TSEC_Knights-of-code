@@ -61,7 +61,7 @@ export default function Filter() {
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-label">Fursnishing</InputLabel>
+        <InputLabel id="demo-simple-select-label">Fursnish</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
