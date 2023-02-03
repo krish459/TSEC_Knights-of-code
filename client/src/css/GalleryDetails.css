@@ -8,6 +8,8 @@
     justify-content: center;
     background-color: white;
     padding: 2rem;
+    border:2px solid palevioletred;
+    border-radius: 10px;
 }
 
 .uploadImages{
