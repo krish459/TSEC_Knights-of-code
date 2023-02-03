@@ -31,7 +31,7 @@ export default function RoommateList() {
 
   const NextArrow = ({ onClick }) => {
     return (
-      <div className="arrow next" onClick={onClick}>
+      <div className="rm-arrow rm-next" onClick={onClick}>
         <FontAwesomeIcon icon={faArrowRight}/>
       </div>
     );
@@ -39,7 +39,7 @@ export default function RoommateList() {
 
   const PrevArrow = ({ onClick }) => {
     return (
-      <div className="arrow prev" onClick={onClick}>
+      <div className="rm-arrow rm-prev" onClick={onClick}>
         <FontAwesomeIcon icon = {faArrowLeft}/>
       </div>
     );
